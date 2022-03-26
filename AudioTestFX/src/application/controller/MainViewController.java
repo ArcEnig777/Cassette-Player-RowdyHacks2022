@@ -1,17 +1,9 @@
 package application.controller;
 
 import java.io.File;
-import java.net.MalformedURLException;
-import java.net.URI;
 import java.net.URISyntaxException;
-import java.net.URL;
-
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
 
 import application.model.Song;
-import javafx.beans.property.ReadOnlyObjectProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -20,18 +12,18 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.Media;
 import javafx.stage.DirectoryChooser;
-import javafx.stage.FileChooser;
 import javafx.util.Duration;
 
 public class MainViewController {
 	
-	//	File song;
-	Duration songPos;
-	MediaPlayer mp;
+	static MediaPlayer mp;
+	static Duration loopStart;
+	static Duration loopEnd;
+	static boolean loopClosed = false;
 
     @FXML
     private ListView<Song> list;
-	
+    
     @FXML
     private Button restartButton;
 
@@ -80,7 +72,20 @@ public class MainViewController {
     	File[] fileArray = directory.listFiles();
     	
     	for ( File fa : fileArray ) {
-    		list.getItems().add(new Song(fa.getName(), -1, fa));
+    		if ( fa.getName().lastIndexOf(".") > -1 ) {
+	    		String fileType = fa.getName().substring(fa.getName().lastIndexOf(".")+1);
+	    		System.out.println(fileType);
+	    		switch( fileType ) {
+	    		case "wav":
+	    		case "flac":
+	    		case "mp3":
+	    		case "ogg":
+	    			list.getItems().add(new Song(fa.getName(), -1, fa));
+	    			break;
+	    		default:
+	    			break;
+	    		}
+    		}
     	}
     	Media mSong = new Media(fileArray[1].toURI().toString());
     	mp = new MediaPlayer(mSong);
@@ -89,12 +94,37 @@ public class MainViewController {
     
     @FXML
     void playSong(MouseEvent event) {
+    	if ( event.getClickCount() == 1 ) {
+    		mp.stop();
+    		File selected = list.getSelectionModel().getSelectedItem().getFile();
+    		mp = new MediaPlayer( new Media(selected.toURI().toString() ) );
+    	}
     	if ( event.getClickCount() == 2 ) {
     		mp.stop();
     		File selected = list.getSelectionModel().getSelectedItem().getFile();
     		mp = new MediaPlayer( new Media(selected.toURI().toString() ) );
     		mp.play();
     	}
+    }
+    
+    @FXML
+    void openLoop(ActionEvent event) {
+    	loopStart = mp.getCurrentTime();
+    }
+    
+    @FXML
+    void closeLoop(ActionEvent event) {
+    	loopEnd = mp.getCurrentTime();
+    	loopClosed = true;
+    	
+    	LoopTask tsk = new LoopTask();
+    	Thread t1 = new Thread(tsk);
+    	t1.start();
+    }
+    
+    @FXML
+    void stopLooping(ActionEvent event) {
+    	loopClosed = false;
     }
 
 }
