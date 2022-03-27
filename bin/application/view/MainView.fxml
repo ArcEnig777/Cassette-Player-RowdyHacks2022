@@ -1,21 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.MainViewController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: grey;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.MainViewController">
    <children>
-      <AnchorPane prefHeight="600.0" prefWidth="600.0">
-         <children>
-            <Button fx:id="pauseButton" layoutX="188.0" layoutY="496.0" mnemonicParsing="false" onAction="#pause" text="Pause" />
-            <Button fx:id="stopButton" layoutX="250.0" layoutY="496.0" mnemonicParsing="false" onAction="#stop" text="Stop" />
-            <Button fx:id="restartButton" layoutX="300.0" layoutY="496.0" mnemonicParsing="false" onAction="#restart" text="Restart" />
-            <Button fx:id="chooseFileButton" layoutX="299.0" layoutY="463.0" mnemonicParsing="false" onAction="#openFile" text="Choose Directory" />
-            <Button fx:id="playButton" layoutX="137.0" layoutY="496.0" mnemonicParsing="false" onAction="#play" text="Play" />
-            <ListView fx:id="list" layoutX="114.0" layoutY="74.0" onMouseClicked="#playSong" prefHeight="297.0" prefWidth="425.0" />
-         </children>
-      </AnchorPane>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#917ac6" height="600.0" stroke="BLACK" strokeType="INSIDE" width="800.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ababab" height="600.0" stroke="BLACK" strokeType="INSIDE" width="135.0" />
+      <Button fx:id="pauseButton" layoutX="315.0" layoutY="441.0" mnemonicParsing="false" onAction="#pause" prefHeight="97.0" prefWidth="87.0">
+         <graphic>
+            <ImageView fitHeight="79.0" fitWidth="71.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="./application/images/pause.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="stopButton" graphicTextGap="0.0" layoutX="439.0" layoutY="445.0" mnemonicParsing="false" onAction="#stop">
+         <graphic>
+            <ImageView fitHeight="80.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="./application/images/stop.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="restartButton" layoutX="554.0" layoutY="475.0" mnemonicParsing="false" onAction="#restart" text="Restart" />
+      <Button fx:id="chooseFileButton" layoutX="15.0" layoutY="130.0" mnemonicParsing="false" onAction="#openFile" prefHeight="52.0" prefWidth="102.0" text="Choose Directory" textAlignment="CENTER" wrapText="true" />
+      <Button fx:id="playButton" layoutX="202.0" layoutY="442.0" mnemonicParsing="false" onAction="#play">
+         <graphic>
+            <ImageView fitHeight="84.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="./application/images/play.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <ListView fx:id="list" layoutX="202.0" layoutY="31.0" onMouseClicked="#playSong" prefHeight="283.0" prefWidth="513.0" />
+      <ImageView fitHeight="82.0" fitWidth="66.0" layoutX="630.0" layoutY="381.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="./application/images/backward.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="84.0" fitWidth="71.0" layoutX="701.0" layoutY="381.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="./application/images/forward.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="switchVid" layoutX="15.0" layoutY="55.0" mnemonicParsing="false" onAction="#switchToVid" text="Video Mode" />
+      <Label fx:id="nowPlaying" layoutX="317.0" layoutY="339.0" text="Now Playing" />
    </children>
 </AnchorPane>
