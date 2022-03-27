@@ -15,6 +15,9 @@
             <Button fx:id="chooseFileButton" layoutX="299.0" layoutY="463.0" mnemonicParsing="false" onAction="#openFile" text="Choose Directory" />
             <Button fx:id="playButton" layoutX="137.0" layoutY="496.0" mnemonicParsing="false" onAction="#play" text="Play" />
             <ListView fx:id="list" layoutX="114.0" layoutY="74.0" onMouseClicked="#playSong" prefHeight="297.0" prefWidth="425.0" />
+            <Slider fx:id="volumeSlider" layoutX="105.0" layoutY="377.0" prefHeight="45.0" prefWidth="181.0" value="50.0" />
+            <Slider fx:id="songProgress" layoutX="121.0" layoutY="538.0" prefHeight="62.0" prefWidth="249.0" />
+            <Button fx:id="rewindB" layoutX="10.0" layoutY="424.0" mnemonicParsing="false" text="Rewind" />
          </children>
       </AnchorPane>
    </children>
