@@ -18,6 +18,26 @@ public class Song {
 	public String toString() {
 		return this.name;
 	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getLength() {
+		return length;
+	}
+
+	public void setLength(int length) {
+		this.length = length;
+	}
+
+	public void setFile(File file) {
+		this.file = file;
+	}
 	
 	public File getFile() {
 		return this.file;
