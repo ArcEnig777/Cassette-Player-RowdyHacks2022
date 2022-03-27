@@ -8,7 +8,7 @@
 
 <AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.MainViewController">
    <children>
-      <Button fx:id="pauseButton" layoutX="505.0" layoutY="444.0" mnemonicParsing="false" onAction="#pause" prefHeight="97.0" prefWidth="87.0">
+      <Button fx:id="pauseButton" layoutX="249.0" layoutY="367.0" mnemonicParsing="false" onAction="#pause" prefHeight="97.0" prefWidth="87.0">
          <graphic>
             <ImageView fitHeight="79.0" fitWidth="71.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -16,7 +16,7 @@
                </image>
             </ImageView>
          </graphic></Button>
-      <Button fx:id="stopButton" graphicTextGap="0.0" layoutX="629.0" layoutY="446.0" mnemonicParsing="false" onAction="#stop">
+      <Button fx:id="stopButton" graphicTextGap="0.0" layoutX="373.0" layoutY="365.0" mnemonicParsing="false" onAction="#stop">
          <graphic>
             <ImageView fitHeight="80.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -26,7 +26,7 @@
          </graphic></Button>
       <Button fx:id="restartButton" layoutX="876.0" layoutY="566.0" mnemonicParsing="false" onAction="#restart" text="Restart" />
       <Button fx:id="chooseFileButton" layoutX="547.0" layoutY="345.0" mnemonicParsing="false" onAction="#openFile" text="Choose Directory" />
-      <Button fx:id="playButton" layoutX="396.0" layoutY="448.0" mnemonicParsing="false" onAction="#play">
+      <Button fx:id="playButton" layoutX="133.0" layoutY="363.0" mnemonicParsing="false" onAction="#play">
          <graphic>
             <ImageView fitHeight="84.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -48,5 +48,18 @@
             <Image url="./application/images/forward.png" />
          </image>
       </ImageView>
+      <ImageView fx:id="leftTape" fitHeight="150.0" fitWidth="200.0" layoutX="519.0" layoutY="408.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../Pictures/RH%2022/leftThing.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="rightTape" fitHeight="81.0" fitWidth="71.0" layoutX="784.0" layoutY="448.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../Pictures/RH%2022/rightTHing.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="588.0" layoutY="566.0" mnemonicParsing="false" onAction="#retroEQ" text="RETRO" />
+      <Button layoutX="67.0" layoutY="546.0" mnemonicParsing="false" onAction="#twoSpeed" text="2x" />
+      <Button layoutX="124.0" layoutY="546.0" mnemonicParsing="false" onAction="#halfSpeed" text="0.5" />
    </children>
 </AnchorPane>
