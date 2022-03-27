@@ -96,12 +96,12 @@ public class VideoPlayerViewController {
     @FXML
     void playVideo(MouseEvent event) {
     	if ( event.getClickCount() == 1 ) {
-    		mp.stop();
+    		//mp.stop();
     		File selected = list.getSelectionModel().getSelectedItem().getFile();
     		mp = new MediaPlayer( new Media(selected.toURI().toString() ) );
     	}
     	if ( event.getClickCount() == 2 ) {
-    		mp.stop();
+    		//mp.stop();
     		File selected = list.getSelectionModel().getSelectedItem().getFile();
     		mp = new MediaPlayer( new Media(selected.toURI().toString() ) );
     		mp.play();
