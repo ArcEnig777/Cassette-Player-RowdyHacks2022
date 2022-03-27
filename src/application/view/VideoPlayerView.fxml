@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.media.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.VideoPlayerViewController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#917ac6" height="600.0" stroke="BLACK" strokeType="INSIDE" width="800.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ababab" height="600.0" layoutX="-1.0" stroke="BLACK" strokeType="INSIDE" width="135.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#6e7780" height="300.0" layoutX="183.0" layoutY="22.0" stroke="BLACK" strokeType="INSIDE" width="553.0" />
+      <MediaView fx:id="mv" fitHeight="300.0" fitWidth="600.0" layoutX="183.0" layoutY="22.0" />
+      <HBox layoutX="183.0" layoutY="472.0" prefHeight="100.0" prefWidth="470.0">
+         <children>
+            <Button fx:id="playButton" mnemonicParsing="false" onAction="#playVid" prefHeight="100.0" prefWidth="120.0" text="Play" />
+            <Button fx:id="pauseButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#pauseVid" prefHeight="100.0" prefWidth="120.0" text="Pause" />
+            <Button fx:id="stopButton" layoutX="130.0" layoutY="10.0" mnemonicParsing="false" onAction="#stopVid" prefHeight="100.0" prefWidth="120.0" text="Stop" />
+         </children>
+      </HBox>
+      <ListView fx:id="list" layoutX="183.0" layoutY="340.0" onMouseClicked="#playVideo" prefHeight="114.0" prefWidth="360.0" />
+      <Button fx:id="switchAudio" layoutX="15.0" layoutY="55.0" mnemonicParsing="false" onAction="#switchToAudio" text="Audio Mode" />
+      <Button fx:id="chooseDirButton" alignment="CENTER" layoutX="15.0" layoutY="130.0" mnemonicParsing="false" onAction="#chooseDir" prefHeight="52.0" prefWidth="102.0" text="Choose Directory" textAlignment="CENTER" wrapText="true" />
+   </children>
+</AnchorPane>
