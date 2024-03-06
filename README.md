@@ -1,4 +1,4 @@
-# RowdyHacks2022
+# Media Cassette Player
 
 Programmed during Rowdy Hacks 2022, March 26/27
 
